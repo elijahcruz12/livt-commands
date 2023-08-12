@@ -17,7 +17,7 @@ class LivtServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                //                InstallLivtCommand::class,
+                InstallLivtCommand::class,
                 MakePageCommand::class,
             ]);
         }
