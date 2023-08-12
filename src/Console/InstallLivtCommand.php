@@ -34,7 +34,7 @@ class InstallLivtCommand extends Command implements PromptsForMissingInput
     {
         $continue = confirm(
             label:'This will install Inertia, Vue, Tailwind, and other dependencies. Do you wish to continue?',
-            required: true);
+            required: false);
 
         if (! $continue) {
             return;
