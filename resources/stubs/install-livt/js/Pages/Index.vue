@@ -16,7 +16,7 @@
                   <circle cx="12" cy="12" r="11" />
                   <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
                 </svg>
-                <p class="ml-4">Use <code class="bg-black px-2 py-1 text-sm text-white"">php artisan make:page</code> to create more pages</p>
+                <p class="ml-4">Use <code class="bg-black px-2 py-1 text-sm text-white">php artisan make:page</code> to create more pages</p>
               </li>
               <li class="flex items-center">
                 <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">

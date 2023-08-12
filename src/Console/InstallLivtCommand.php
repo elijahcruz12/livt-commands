@@ -8,6 +8,8 @@ use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Process\Process;
 
+use function Laravel\Prompts\confirm;
+
 class InstallLivtCommand extends Command implements PromptsForMissingInput
 {
     /**
@@ -30,6 +32,14 @@ class InstallLivtCommand extends Command implements PromptsForMissingInput
      */
     public function handle()
     {
+        $continue = confirm(
+            label:'This will install Inertia, Vue, Tailwind, and other dependencies. Do you wish to continue?',
+            required: true);
+
+        if (! $continue) {
+            return;
+        }
+
         $this->callSilent('storage:link');
 
         if(file_exists(resource_path('views/welcome.blade.php'))) {
