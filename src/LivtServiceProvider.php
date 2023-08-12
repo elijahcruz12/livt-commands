@@ -1,4 +1,5 @@
 <?php
+
 namespace Elijahcruz\Livt;
 
 use Elijahcruz\Livt\Console\InstallLivtCommand;
@@ -14,10 +15,10 @@ class LivtServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        if($this->app->runningInConsole()){
+        if ($this->app->runningInConsole()) {
             $this->commands([
-//                InstallLivtCommand::class,
-            MakePageCommand::class
+                //                InstallLivtCommand::class,
+                MakePageCommand::class,
             ]);
         }
     }

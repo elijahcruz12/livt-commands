@@ -44,11 +44,11 @@ class MakePageCommand extends Command
 
         $filesystem = new Filesystem();
 
-        if(! empty($array)){
+        if (! empty($array)) {
             $array = array_map(function ($item) {
                 // If the first letter in the string is not a capital letter, make it one
                 // If it is a capital letter, leave it alone
-                if(ctype_upper($item[0])) {
+                if (ctype_upper($item[0])) {
                     return $item;
                 } else {
                     return ucfirst($item);
@@ -70,9 +70,7 @@ class MakePageCommand extends Command
 
     private function getStub()
     {
-        $stubDirectory = __DIR__ . '/../../resources/stubs/make-page/';
-
-
+        $stubDirectory = __DIR__.'/../../resources/stubs/make-page/';
 
         $file = 'Page.vue';
 

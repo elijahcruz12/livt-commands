@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Added by Elijahcruz because it doesn't exist by default in tailwind */
+.rotate-360 {
+    transform: rotate(360deg);
+}
+
+/* Added by Elijahcruz because it doesn't exist by default in tailwind */
+.rotate-360-inverse {
+    transform: rotate(-360deg);
+}
