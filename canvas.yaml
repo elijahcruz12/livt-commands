@@ -1,0 +1,24 @@
+preset: package
+
+namespace: Elijahcruz\Livt
+user-auth-provider: App\Models\User
+
+paths:
+  src: src
+  resource: resources
+
+factory:
+  path: database/factories
+
+migration:
+  path: database/migrations
+  prefix: ''
+
+console:
+  namespace: Elijahcruz\Livt\Console
+
+provider:
+  namespace: Elijahcruz\Livt\Providers
+
+testing:
+  namespace: Elijahcruz\Livt\Tests

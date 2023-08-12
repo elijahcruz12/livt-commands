@@ -1,0 +1,32 @@
+{
+    "name": "elijahcruz/livt-commands",
+    "description": "A Laravel, Inertia, Vue, Tailwind package with helper commands",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Elijah Cruz",
+            "email": "ecwebservices@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "orchestra/canvas": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Elijahcruz\\Livt\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Elijahcruz\\Livt\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Elijahcruz\\Livt\\LivtCommandsServiceProvider"
+            ]
+        }
+    }
+}
