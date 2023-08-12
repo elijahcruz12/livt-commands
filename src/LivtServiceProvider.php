@@ -2,6 +2,7 @@
 namespace Elijahcruz\Livt;
 
 use Elijahcruz\Livt\Console\InstallLivtCommand;
+use Elijahcruz\Livt\Console\MakePageCommand;
 use Illuminate\Support\ServiceProvider;
 
 class LivtServiceProvider extends ServiceProvider
@@ -15,7 +16,8 @@ class LivtServiceProvider extends ServiceProvider
     {
         if($this->app->runningInConsole()){
             $this->commands([
-                InstallLivtCommand::class
+//                InstallLivtCommand::class,
+            MakePageCommand::class
             ]);
         }
     }
