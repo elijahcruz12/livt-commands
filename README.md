@@ -26,3 +26,21 @@ This command will install the packages you need for the Livt stack, it'll even i
 ```bash
 php artisan livt:install
 ```
+
+### make:page
+
+This command will create a new page in `resources/js/Pages`. You can use / in the name to create subdirectories, or you can also use the dot notation.
+
+```base
+// This works
+php artisan make:page page.name
+
+// This also works
+php artisan make:page Page/Name
+
+// Even this works
+php artisan make:page Page.Name
+
+// And also this
+php artisan make:page Page/Name/With/More/Names
+```
