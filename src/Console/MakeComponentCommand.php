@@ -4,25 +4,22 @@ namespace Elijahcruz\Livt\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\File;
 
-class MakePageCommand extends Command
+class MakeComponentCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'make:page {name}
-        {--C|component : Make a component instead of a page}
-        {--force : Overwrite the page if it already exists}';
+    protected $signature = 'make:component';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Creates a new Inertia page in the Pages directory';
+    protected $description = 'Creates a new Inertia component in the Components directory';
 
     /**
      * Execute the console command.
@@ -30,12 +27,7 @@ class MakePageCommand extends Command
     public function handle()
     {
         $name = $this->argument('name');
-        if($this->option('component')){
-            $pageDirectory = resource_path('js/Components/');
-        }
-        else{
-            $pageDirectory = resource_path('js/Pages/');
-        }
+        $pageDirectory = resource_path('js/Components/');
 
         // Check if the page is in dot notation
         if (strpos($name, '.') !== false) {
@@ -43,15 +35,6 @@ class MakePageCommand extends Command
         }
 
         $array = explode('/', $name);
-
-        if(!$this->option('force')){
-            // Lets check if the page already exists
-            if (File::exists($pageDirectory.implode('/', $array).'.vue')) {
-                $this->error('Page already exists!');
-
-                return;
-            }
-        }
 
         // Pop the page name off the end of the array
         $pageName = ucfirst(array_pop($array));
