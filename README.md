@@ -43,4 +43,8 @@ php artisan make:page Page.Name
 
 // And also this
 php artisan make:page Page/Name/With/More/Names
+
+// Want to create a component? Use the --component flag.
+// It'll use the resources/js/Pages folder instead.
+php artisan make:page MyAwesome.Component --component
 ```
