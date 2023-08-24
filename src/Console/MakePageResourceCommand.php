@@ -83,6 +83,11 @@ class MakePageResourceCommand extends Command implements PromptsForMissingInput
         }
 
         foreach ($pages as $page){
+            // Check if the page already exists
+            if (File::exists($directory.'/'.$page.'.vue')) {
+                $this->error('Page ' . $page . '.Vue already exists, skipping...');
+            }
+
             $filesystem->put($directory.'/'.$page.'.vue', $stub);
         }
 
