@@ -30,12 +30,7 @@ class MakePageResourceCommand extends Command implements PromptsForMissingInput
     public function handle()
     {
         $name = $this->argument('name');
-        if($this->option('component')){
-            $pageDirectory = resource_path('js/Components/');
-        }
-        else{
-            $pageDirectory = resource_path('js/Pages/');
-        }
+        $pageDirectory = resource_path('js/Pages/');
 
         // Check if the page is in dot notation
         if (strpos($name, '.') !== false) {
