@@ -7,15 +7,14 @@ use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
 
-class MakePageCommand extends Command implements PromptsForMissingInput
+class MakePageResourceCommand extends Command implements PromptsForMissingInput
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'make:page {name}
-        {--C|component : Make a component instead of a page}
+    protected $signature = 'make:page-resource {name} {--only= : Comma separated list of pages to create} {--except= : Comma separated list of pages to not create}
         {--force : Overwrite the page if it already exists}';
 
     /**
@@ -23,7 +22,7 @@ class MakePageCommand extends Command implements PromptsForMissingInput
      *
      * @var string
      */
-    protected $description = 'Creates a new Inertia page in the Pages directory';
+    protected $description = 'Creates a set of pages in the Pages directory for a resource (Eg. Client becomes Client/Index,Client/Create,Client/Show, etc.)';
 
     /**
      * Execute the console command.
@@ -55,9 +54,6 @@ class MakePageCommand extends Command implements PromptsForMissingInput
         }
 
         // Pop the page name off the end of the array
-        $pageName = ucfirst(array_pop($array));
-
-        $totalName = $pageName;
 
         $filesystem = new Filesystem();
 
@@ -80,9 +76,22 @@ class MakePageCommand extends Command implements PromptsForMissingInput
 
         $stub = $this->getStub();
 
-        $filesystem->put($directory.'/'.$pageName.'.vue', $stub);
+        if($this->option('only')){
+            $pages = explode(',', $this->option('only'));
+        }
+        elseif($this->option(['except'])){
+            $pages = ['Index', 'Create', 'Show', 'Edit'];
+            $pages = array_diff($pages, explode(',', $this->option('except')));
+        }
+        else{
+            $pages = ['Index', 'Create', 'Show', 'Edit'];
+        }
 
-        $this->info('Page created successfully.');
+        foreach ($pages as $page){
+            $filesystem->put($directory.'/'.$page.'.vue', $stub);
+        }
+
+        $this->info('Pages created successfully.');
     }
 
     private function getStub()
