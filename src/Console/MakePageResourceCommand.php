@@ -74,7 +74,7 @@ class MakePageResourceCommand extends Command implements PromptsForMissingInput
         if($this->option('only')){
             $pages = explode(',', $this->option('only'));
         }
-        elseif($this->option(['except'])){
+        elseif($this->option('except')){
             $pages = ['Index', 'Create', 'Show', 'Edit'];
             $pages = array_diff($pages, explode(',', $this->option('except')));
         }
