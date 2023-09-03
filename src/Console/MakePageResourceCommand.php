@@ -68,6 +68,9 @@ class MakePageResourceCommand extends Command implements PromptsForMissingInput
 
             $filesystem->ensureDirectoryExists($directory);
         }
+        else {
+            $directory = $pageDirectory;
+        }
 
         $stub = $this->getStub();
 
